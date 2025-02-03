@@ -1,0 +1,169 @@
+// section style
+.section {
+  @apply py-20;
+}
+
+// container
+.container {
+  @apply max-w-[1100px] px-4 lg:px-0;
+}
+
+// page heading
+.page-heading {
+  @apply mb-20 text-center font-bold leading-10;
+  &:after {
+    @apply mx-auto mt-4 block h-1 w-10 rounded-full bg-primary content-[''];
+  }
+}
+
+// form style
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+// image cover
+.img-cover {
+  @apply leading-none;
+  span {
+    @apply h-full w-full;
+  }
+  img {
+    @apply object-cover;
+  }
+}
+
+// author-image
+.author-image {
+  @apply mr-2 align-top;
+  img {
+    @apply max-h-[25px] max-w-[25px] rounded-full;
+  }
+}
+
+// social icon style
+.social-icons {
+  @apply space-x-4;
+  li {
+    @apply inline-block;
+    a {
+      @apply block h-11 w-11 rounded-lg border border-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+      svg {
+        @apply m-auto h-11 text-base;
+      }
+    }
+  }
+}
+
+.social-icons-simple {
+  @apply space-x-2;
+  li {
+    @apply inline-block;
+    a {
+      @apply block p-3 text-dark transition hover:text-primary;
+      svg {
+        @apply text-lg;
+      }
+    }
+  }
+}
+
+.social-share {
+  @apply space-x-1;
+  li {
+    @apply inline-block;
+    a {
+      @apply block p-3 transition transition duration-300 hover:text-primary;
+    }
+  }
+}
+
+// form style
+.form-input,
+.form-textarea {
+  @apply rounded-md border-border py-3 text-text focus:border-primary focus:ring-transparent;
+}
+
+// content style
+.content {
+  @apply prose max-w-none prose-headings:font-bold prose-h1:mb-4 prose-h1:text-h1-sm prose-h2:mb-4 prose-h2:mt-4 prose-h2:text-h2-sm prose-h3:mt-4 prose-h3:text-h3-sm prose-h4:mt-4 prose-h5:mb-4 prose-h6:mb-6 prose-blockquote:rounded-lg prose-blockquote:border-primary prose-blockquote:bg-theme-light prose-blockquote:px-7 prose-blockquote:py-3 prose-blockquote:text-lg prose-blockquote:leading-8 prose-pre:px-6 prose-pre:py-5 md:prose-h1:text-h1 md:prose-h2:text-h2 md:prose-h3:text-h3;
+}
+
+// content text and header color (markdown bold titles)
+.content p {
+  color: white;
+}
+
+.content strong {
+  color: white;
+}
+
+.content li {
+  color: white;
+}
+
+.content blockquote {
+  background-color: darkgray;
+  opacity: 0.7;
+}
+
+.content a {
+  color: white;
+}
+
+// footer
+footer p a {
+  @apply transition-all duration-200 hover:text-white;
+}
+
+
+.on-hover-escape:hover .hover-show {
+  transition: .5s ease-in-out;
+  transform: translate(-50%, -20px);
+}
+.on-hover-escape:hover:after {
+  transition: .5s ease-in-out;
+  opacity: 0;
+  bottom: -100%;
+}
+.hover-show {
+  transform: translate(-50%, 20px);
+  transition: .5s ease-in-out;
+}
+.on-hover-escape:before{
+  content: "";
+  background: #000;
+  opacity: .6;
+  width: 100%;
+  height: 100%;
+  bottom:-100%;
+  left: 0;
+  transition: .5s ease-in-out;
+  position: absolute;
+  z-index: 1;
+}
+.on-hover-escape:hover:before{
+  bottom:0%;
+  transition: .5s ease-in-out;
+}
+input#nav-toggle:checked ~ #nav-menu {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  background: #eee;
+  left: 0;
+  z-index: 99;
+  height: 100vh;
+  overflow: auto;
+  top: 110%;
+  padding:20px;
+}
+.condation-text p {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+@media(min-width:1025px) and (max-width:1200px){
+  body{
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,42 @@
+---
+import { categories } from "@lib/strapi";
+import { nativePosts } from "@lib/strapi";
+---
+
+<div class="Sidebar border-[#EBF1F8] border-[1px] py-[10px] sticky top-[10px]">
+  <iframe
+    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMeddiah-110352701091294&tabs=timeline&width=255&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+    class="h-[300px] w-full"></iframe>
+  <!-- Categories -->
+  <div class="text-center mt-[20px] border-t-[1px] border-[#EBF1F8] py-[10px]">
+    <span class="text-[#000] tracking-wider uppercase">Categories</span>
+    <ul class="text-start p-[20px] flex flex-col gap-[5px]">
+      {
+        categories.map((category) => (
+          <li>
+            <a
+              href={`/categories/${category.attributes.slug}/`}
+              class="text-[14px] text-[#000] capitalize"
+            >
+              {category.attributes.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="text-center mt-[20px] border-t-[1px] border-[#EBF1F8] pt-[10px]">
+    <span class="text-[#000] tracking-wider uppercase">Recommended</span>
+    <ul class="text-start p-[20px] flex flex-col gap-[5px]">
+      {
+        nativePosts.slice(8, 13).map((post) => (
+          <li>
+            <a href={"/" + post.slug + "/"} class="text-[14px] text-[#000]">
+              {post.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

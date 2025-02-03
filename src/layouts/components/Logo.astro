@@ -1,0 +1,41 @@
+---
+import config from "@config/config.json";
+import { site } from "@lib/strapi";
+
+const { src } = Astro.props;
+
+const {
+  logo,
+  logo_width,
+  logo_height,
+  logo_text,
+  title,
+}: {
+  logo: string;
+  logo_width: any;
+  logo_height: any;
+  logo_text: string;
+  title: string;
+} = config.site;
+
+const { logoUrl } = site[0];
+---
+
+<a href="/" class="navbar-brand block">
+  {
+    src || logoUrl || logo ? (
+      <img
+        alt={title}
+        src={src ? src : logoUrl ? logoUrl : logo}
+        width={logo_width}
+        height={logo_height}
+        decoding="async"
+        class="lg:w-[166px] md:w-[100px]"
+      />
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>

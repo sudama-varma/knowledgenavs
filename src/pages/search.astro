@@ -1,0 +1,22 @@
+---
+import Base from "@layouts/Base.astro";
+import SearchComponent, { type SearchItem } from "@layouts/Search";
+import { nativePosts } from "@lib/strapi";
+
+// List of items to search in
+const searchList: SearchItem[] = nativePosts.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  content: post.content,
+  category: (post.categories && post.categories[0]) || "General",
+  imageUrl: post.imageUrl || "",
+}));
+---
+
+<Base title={`Search`}>
+  <section class="section">
+    <div class="container">
+      <SearchComponent client:load searchList={searchList} />
+    </div>
+  </section>
+</Base>

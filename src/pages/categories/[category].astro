@@ -1,0 +1,45 @@
+---
+import Base from "@layouts/Base.astro";
+import Posts from "@layouts/Posts.astro";
+import { nativePosts } from "@lib/strapi";
+import { categories } from "@lib/strapi";
+
+export async function getStaticPaths() {
+  const latestCategories = categories.map((item) => {
+    return item.attributes.name.toLowerCase().replace(/ /g, "-");
+  });
+
+  return latestCategories.map((category) => {
+    return {
+      params: { category },
+    };
+  });
+}
+
+const { category } = Astro.params;
+
+const filterByCategory = nativePosts.filter(
+  (post) =>
+    post.categories &&
+    post.categories.some(
+      (postCategory) =>
+        postCategory.toLowerCase() === category.replace(/-/g, " ")
+    )
+);
+---
+
+<Base title={category || "Category"} showFooter={false}>
+  <div class="section pt-[10px]">
+    <div class="container">
+      <div
+        class="md:p-[32px] p-[16px] bg-[#F6F9FC] border-[1px] border-[#EBF1F8] mb-[32px]"
+      >
+        <p class="text-start mb-0 text-[16px] text-[#000]">
+          <span class="text-[#000]">Category:</span>
+          <span class="text-[#000] capitalize">{category}</span>
+        </p>
+      </div>
+      <Posts posts={filterByCategory} fluid={false} />
+    </div>
+  </div>
+</Base>

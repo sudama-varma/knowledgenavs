@@ -1,0 +1,24 @@
+---
+import config from "@config/config.json";
+import Base from "@layouts/Base.astro";
+import Pagination from "@layouts/components/Pagination.astro";
+import Posts from "@layouts/Posts.astro";
+import { nativePosts } from "@lib/strapi";
+
+const totalPages = Math.ceil(nativePosts.length / config.settings.pagination);
+const currentPosts = nativePosts.slice(0, config.settings.pagination);
+---
+
+<Base title="All Posts" showFooter={true}>
+    <div class="section">
+      <div class="container">
+        <h1 class="h2 mb-4 text-center text-[#000] capitalize">All Posts</h1>
+        <p class="text-center mb-16 text-lg">
+          Showing all posts<span
+          >
+        </p>
+        <Posts posts={currentPosts} className="mb-16" />
+        <Pagination currentPage={1} totalPages={totalPages} />
+      </div>
+    </div>
+  </Base>

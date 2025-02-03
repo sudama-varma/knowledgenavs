@@ -1,0 +1,35 @@
+{
+  "site": {
+    "title": "Explore Travel, Tech, Finance & Knowledge Insights",
+    "base_url": "https://meddiah.com/",
+    "base_path": "/",
+    "trailing_slash": true,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.webp",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "Meddiah logo"
+  },
+
+  "settings": {
+    "pagination": 5,
+    "summary_length": 100
+  },
+
+  "metadata": {
+    "meta_author": "Meddiah Team",
+    "meta_image": "",
+    "meta_description": "Explore perspectives, on travel experiences and technology advancements while gaining knowledge in finance matters! Stay updated with advice and current trends, through articles covering a range of subjects."
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2025 KnowledgeNavs"
+  },
+
+  "contactinfo": {
+    "address": "",
+    "email": "info@meddiah.com",
+    "phone": ""
+  }
+}

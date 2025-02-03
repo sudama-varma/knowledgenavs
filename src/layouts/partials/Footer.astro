@@ -1,0 +1,73 @@
+---
+import Social from "@components/Social.astro";
+import FtrLogo from "@components/footerLogo.astro";
+import config from "@config/config.json";
+import menu from "@config/menu.json";
+import social from "@config/social.json";
+import { markdownify } from "@lib/utils/textConverter";
+import { nativePosts } from "@lib/strapi";
+import Trending from "@layouts/components/Trending.astro";
+import { AiFillFacebook, AiFillTwitterCircle } from "react-icons/ai/index.js";
+
+const popularPosts = nativePosts.slice(1, 4);
+const trendingPosts = nativePosts.slice(6, 9);
+---
+
+<footer class="bg-[#00316c] md:pt-[90px] p-[3%]">
+  <div class="container">
+    <div class="flex md:flex-wrap lg:flex-nowrap align-top gap-10">
+      <div
+        class="lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%] text-left"
+      >
+        {/* footer menu */}
+        <FtrLogo />
+        <!-- description -->
+        <p class="text-[#fff] text-[14px]">
+          KnowledgeNavs is all about handy tips and smart ideas for everyday life. From home fixes and fashion advice to healthy recipes and the latest research, it’s all here.
+        </p>
+        {/* copyright */}
+        <p
+          class="text-[#fff] text-[14px] my-[20px]"
+          set:html={markdownify(config.params.copyright)}
+        />
+        <!-- social icons -->
+        <div class="w-full flex items-center gap-[5px] mb-[20px]">
+          <span class="text-[#fff] text-[32px]"
+            ><a href="#"><AiFillFacebook /></a></span
+          >
+          <span class="text-[#fff] text-[32px]"
+            ><a href="#"><AiFillTwitterCircle /></a></span
+          >
+        </div>
+        <ul class="mb-4 flex flex-wrap gap-[10px]">
+          {
+            menu.footer.map((menu) => (
+              <li class="block w-[calc(50%-5px)]">
+                <a
+                  href={menu.url}
+                  class="text-white hover:text-white transition-all"
+                >
+                  {menu.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        {/* social icons */}
+        <Social source={social} className="social-icons mb-8" />
+      </div>
+      <Trending
+        className="hidden md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
+        posts={popularPosts}
+        title="Popular posts"
+        type="footer"
+      />
+      <Trending
+        className="hidden md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
+        posts={trendingPosts}
+        title="Trending posts"
+        type="footer"
+      />
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,22 @@
+---
+import Base from "@layouts/Base.astro";
+import PostSingle from "@layouts/PostSingle.astro";
+import config from "@config/config.json";
+import { nativePosts } from "@lib/strapi";
+import "../styles/nubia-theme.scss";
+
+export async function getStaticPaths() {
+  return nativePosts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { title, content } = post;
+const { summary_length } = config.settings;
+---
+
+<Base title={title} meta_title={title} description={""} showFooter={false}>
+  <PostSingle post={post} isNative={true} />
+</Base>

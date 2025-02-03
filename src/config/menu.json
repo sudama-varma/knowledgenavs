@@ -1,0 +1,62 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "About us",
+      "url": "/about-us/"
+    },
+    {
+      "name": "Travel",
+      "url": "/categories/travel/"
+    },
+    {
+      "name": "Interesting",
+      "url": "/categories/interesting/"
+    },
+    {
+      "name": "Food and Health",
+      "url": "/categories/food-and-health/"
+    },
+    {
+      "name": "Finance",
+      "url": "/categories/finance/"
+    },
+    {
+      "name": "Entertainment",
+      "url": "/categories/entertainment/"
+    }
+  ],
+  "footer": [
+    {
+      "name": "About Us",
+      "url": "/about-us/"
+    },
+    {
+      "name": "DMCA Policy",
+      "url": "/legal/dmca-policy/"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/legal/privacy-policy/"
+    },
+    {
+      "name": "Cookie Policy",
+      "url": "/legal/cookie-policy/"
+    },
+    {
+      "name": "Terms of Service",
+      "url": "/legal/terms-of-use/"
+    },
+    {
+      "name": "Advertise With Us",
+      "url": "/legal/advertise-with-us/"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact/"
+    }
+  ]
+}

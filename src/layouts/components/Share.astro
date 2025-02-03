@@ -1,0 +1,79 @@
+---
+import config from "@config/config.json";
+import { IoLogoFacebook } from "react-icons/io5/index.js";
+import { FaXTwitter } from "react-icons/fa6/index.js";
+
+const { base_url } = config.site;
+const {
+  title,
+  slug,
+  className,
+  isNative,
+}: {
+  title: string;
+  slug: string;
+  className: any;
+  isNative: boolean;
+} = Astro.props as {
+  title: string;
+  slug: string;
+  className: any;
+  isNative: boolean;
+};
+---
+
+<div class="flex gap-4">
+  <p class="align-middle pt-3">Share on</p>
+  <ul class={`${className}`}>
+    <li class="inline-block">
+      {
+        isNative ? (
+          <a
+            aria-label="facebook share button"
+            href={`https://facebook.com/sharer/sharer.php?u=${base_url}/${slug}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="text-xl text-[#9181CE]"
+          >
+            <IoLogoFacebook />
+          </a>
+        ) : (
+          <a
+            aria-label="facebook share button"
+            href={`https://facebook.com/sharer/sharer.php?u=${base_url}/post/${slug}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="text-xl text-[#9181CE]"
+          >
+            <IoLogoFacebook />
+          </a>
+        )
+      }
+    </li>
+    <li class="inline-block">
+      {
+        isNative ? (
+          <a
+            aria-label="twitter share button"
+            href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${base_url}/${slug}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="text-xl text-[#E0007A]"
+          >
+            <FaXTwitter />
+          </a>
+        ) : (
+          <a
+            aria-label="twitter share button"
+            href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${base_url}/post/${slug}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="text-xl text-[#E0007A]"
+          >
+            <FaXTwitter />
+          </a>
+        )
+      }
+    </li>
+  </ul>
+</div>

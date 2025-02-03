@@ -1,0 +1,85 @@
+---
+import { markdownify } from "@lib/utils/textConverter";
+import type { Post } from "../../interfaces/post";
+
+const { post }: { post: Post; isNative: boolean } = Astro.props as {
+  post: Post;
+  isNative: boolean;
+};
+
+const { title, categories } = post;
+
+const {
+  imageUrl,
+  imageWidth,
+  imageHeight,
+  imageSmallUrl,
+  imageMediumUrl,
+  imageSmallWidth,
+  imageMediumWidth,
+} = post;
+
+// On this site we only want 1 category
+const category = categories?.[0];
+---
+
+<section class="bg-[#F6F9FC] lg:py-[90px] md:py-[60px] py-[40px]">
+  <div class="container">
+    <div class="">
+      <h2 class="text-[24px] text-[#000] text-center">
+        You Might Be Interested In
+      </h2>
+    </div>
+    <div
+      class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-[50px] gap-[40px]"
+    >
+      <article
+        class="row justify-start mx-0 bg-[#fff] border-[1px] border-[#EBF1F8]"
+      >
+        <div class="p-[20px] w-full">
+          <a href="{post.slug}" class="group-hover:underline group">
+            <div
+              class="col-12 mb-2 px-0 relative overflow-hidden after:content-[''] after:absolute after:w-[100%] after:h-[100%] after:left-0 after:top-0 after:bg-[#000] after:opacity-[0] group-hover:after:opacity-30 transition-transform duration-500 ease-in-out"
+            >
+              {
+                imageUrl && (
+                  <img
+                    srcset={`
+                          ${imageSmallUrl} ${imageSmallWidth}w,
+                          ${imageMediumUrl} ${imageMediumWidth}w,
+                          ${imageUrl} ${imageWidth}w
+                        `}
+                    sizes={`
+                          (max-width: 540px) 480px,
+                          (max-width: 768px) 660px,
+                          (min-width: 1024px) ${imageWidth}px
+                        `}
+                    src={imageUrl || "/images/placeholder.png"}
+                    width={imageWidth}
+                    height={imageHeight}
+                    alt={title}
+                    class="rounded-0 group-hover:scale-105 transition-transform duration-500 "
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                  />
+                )
+              }
+            </div>
+            <div class="text-start">
+              <span
+                class="bg-[#fff] text-[#DB3334] w-auto border-[#DB3334] border-s-[2px] py-[0px] px-[10px] text-[14px] leading-[14px] capitalize"
+              >
+                {category && category.toLowerCase()}
+              </span>
+              <h1
+                set:html={markdownify(title)}
+                class="text-[18px] text-[#000] text-start mt-[20px] group-hover:underline"
+              />
+            </div>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
