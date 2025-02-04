@@ -1,6 +1,7 @@
 ---
 import Logo from "@components/Logo.astro";
 import menu from "@config/menu.json";
+import { FaFacebookF, FaTwitter } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5/index.js";
 
 export interface ChildNavigationLink {
@@ -18,13 +19,13 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pb-6 pt-[30px] max-w-[1100px] mx-auto">
-  <nav class="navbar xl:container mx-auto lg:px-0 px-[20px]">
+<header class="header py-[8px] px-[1rem] mx-auto shadow-md">
+  <nav class="navbar xl:container mx-auto px-[15px] px-[20px]">
     <!-- logo -->
     <div class="order-0">
       <Logo />
     </div>
-    <div class="w-auto flex items-center lg:gap-[20px] lg:pe-[60px]">
+    <div class=" md:w-[calc(100%-185px)] flex items-center lg:gap-[20px] lg:pe-[60px]  md:justify-between ">
       <!-- navbar toggler -->
       <input id="nav-toggle" type="checkbox" class="hidden" />
       <label
@@ -61,15 +62,30 @@ const { main }: { main: NavigationLink[] } = menu;
               <li class="nav-item">
                 <a
                   href={nav.url}
-                  class="lg:text-[16px] md:text-[14px] font-[500] text-left text-black block hover:text-[#DB3334] ease-in-out duration-[.5s]"
+                  class="lg:text-[16px] md:text-[14px] font-[500] text-left text-[#00316c] block hover:text-[#bf1d20] ease-in-out duration-[.5s]"
                 >
                   {nav.name}
                 </a>
               </li>
             ))
         }
+              <div class="order-1 flex flex sm:max-flex sm:flex md:hidden">
+                <a
+                  class="mr-4 inline-block cursor-pointer p-2 text-xl text-[#000] transition hover:text-[#DB3334] md:mr-0"
+                  href="/search/"
+                  title="search"
+                  aria-label="search"
+                >
+                  <IoSearch />
+                </a>
+                <div class="w-full flex items-center social_icons">
+                  
+                  <span class="text-[#fff] text-[14px]"><a href="#" class="flex items-center justify-center"><FaTwitter/></a></span>
+                  <span class="text-[#fff] text-[14px]"><a href="#" class="flex items-center justify-center"><FaFacebookF/></a></span>
+                </div>
+              </div>
       </ul>
-      <div class="order-1 ml-auto flex md:order-2 md:ml-0">
+      <div class="order-1 ml-auto md:flex md:order-2 md:ml-0 hidden sm:max-hidden">
         <a
           class="mr-4 inline-block cursor-pointer p-2 text-xl text-[#000] transition hover:text-[#DB3334] md:mr-0"
           href="/search/"
@@ -78,6 +94,11 @@ const { main }: { main: NavigationLink[] } = menu;
         >
           <IoSearch />
         </a>
+        <div class="w-full flex items-center social_icons">
+          
+          <span class="text-[#fff] text-[14px]"><a href="#" class="flex items-center justify-center"><FaTwitter/></a></span>
+          <span class="text-[#fff] text-[14px]"><a href="#" class="flex items-center justify-center"><FaFacebookF/></a></span>
+        </div>
       </div>
     </div>
   </nav>

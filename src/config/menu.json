@@ -29,6 +29,24 @@
       "url": "/categories/entertainment/"
     }
   ],
+  "mainheader": [
+    {
+      "name": "News",
+      "url": "/about-us/"
+    },
+    {
+      "name": "Savings",
+      "url": "/categories/travel/"
+    },
+    {
+      "name": "Financial Tips",
+      "url": "/categories/interesting/"
+    },
+    {
+      "name": "Shopping",
+      "url": "/categories/food-and-health/"
+    }
+  ],
   "footer": [
     {
       "name": "About Us",
