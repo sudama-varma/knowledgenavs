@@ -15,8 +15,10 @@ export async function getStaticPaths() {
 const post = Astro.props;
 const { title, content } = post;
 const { summary_length } = config.settings;
+
+
 ---
 
-<Base title={title} meta_title={title} description={""} showFooter={false}>
+<Base title={title} meta_title={title} description={""} >
   <PostSingle post={post} isNative={true} />
 </Base>

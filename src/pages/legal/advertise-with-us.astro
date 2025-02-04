@@ -2,7 +2,7 @@
 import Base from "@layouts/Base.astro";
 import { parseMarkdown } from "@lib/utils/textConverter";
 import { site } from "@lib/strapi";
-const content: BlocksContent = site[0].advertiseWithUs;
+const content = site[0].advertiseWithUs;
 ---
 
 <Base>
