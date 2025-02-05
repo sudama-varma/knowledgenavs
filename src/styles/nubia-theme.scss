@@ -573,15 +573,15 @@ body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   background-color: #ffffff;
-  border: 4px solid #f6f9fc;
+  // border: 4px solid #f6f9fc;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@media (min-width: 40em) {
-  body {
-    border: 8px solid #f6f9fc;
-  }
-}
+// @media (min-width: 40em) {
+//   body {
+//     border: 8px solid #f6f9fc;
+//   }
+// }
 
 *::-moz-selection {
   color: #ffffff;
@@ -811,6 +811,10 @@ select {
 /*------------------------------------*\
     Elements > Buttons
   \*------------------------------------*/
+
+  .c-content h2,  .c-content h3 {
+    font-size: 2.25rem;
+  }
 .c-btn,
 input[type="submit"] {
   display: inline-block;
@@ -2625,10 +2629,9 @@ body {
 
 /*------------------------------------*\
     Components > Content
-  \*------------------------------------*/
+\*------------------------------------*/
 .c-content {
   margin-bottom: 32px;
-  font-family: Georgia, serif;
 }
 .c-content:after {
   content: "";
@@ -2657,7 +2660,8 @@ body {
 .c-content dd,
 .c-content ol,
 .c-content ul {
-  font-size: 18px;
+  font-size: 1.3rem;
+  line-height: 2.5rem;
 }
 .c-content blockquote p {
   font-size: 20px;
@@ -3482,4 +3486,11 @@ div.wpcf7-response-output {
   content: "";
   display: table;
   clear: both;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .c-content h2,  .c-content h3 {
+    font-size: 1.7rem;
+  }
 }
