@@ -8,44 +8,48 @@ import { markdownify } from "@lib/utils/textConverter";
 import { nativePosts } from "@lib/strapi";
 import Trending from "@layouts/components/Trending.astro";
 import { AiFillFacebook, AiFillTwitterCircle } from "react-icons/ai/index.js";
+import { FaFacebook, FaFacebookF, FaFacebookMessenger, FaTwitter } from "react-icons/fa6";
+import { IoLogoFacebook } from "react-icons/io5";
 
 const popularPosts = nativePosts.slice(1, 4);
 const trendingPosts = nativePosts.slice(6, 9);
 ---
 
-<footer class="bg-[#00316c] md:pt-[90px] p-[3%]">
-  <div class="container">
-    <div class="flex md:flex-wrap lg:flex-nowrap align-top gap-10">
+<footer class="footer bg-[#00316c] p-[3%]">
+  <div class="container-fluid">
+    <div class="footer_inner flex md:flex-wrap lg:flex-nowrap align-top gap-10">
       <div
         class="lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%] text-left"
       >
         {/* footer menu */}
-        <FtrLogo />
+        <p class="pl-[1.5rem] mb-0">
+          <FtrLogo />
+        </p>
         <!-- description -->
-        <p class="text-[#fff] text-[14px]">
+        <p class="text-[#fff] text-[12px] mb-[15px]">
           KnowledgeNavs is all about handy tips and smart ideas for everyday life. From home fixes and fashion advice to healthy recipes and the latest research, it’s all here.
         </p>
         {/* copyright */}
         <p
-          class="text-[#fff] text-[14px] my-[20px]"
+          class="text-[#fff] text-[14px] mb-[15px]"
           set:html={markdownify(config.params.copyright)}
         />
         <!-- social icons -->
-        <div class="w-full flex items-center gap-[5px] mb-[20px]">
-          <span class="text-[#fff] text-[32px]"
-            ><a href="#"><AiFillFacebook /></a></span
+        <div class="w-full flex items-center gap-[5px] mb-[20px] social_icons">
+          <span class="text-[#fff] text-[14px]"
+            ><a href="#" class="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"><FaFacebookF/></a></span
           >
-          <span class="text-[#fff] text-[32px]"
-            ><a href="#"><AiFillTwitterCircle /></a></span
+          <span class="text-[#fff] text-[14px]"
+            ><a href="#" class="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"><FaTwitter/></a></span
           >
         </div>
-        <ul class="mb-4 flex flex-wrap gap-[10px]">
+        <ul class="mb-4 flex flex-wrap">
           {
             menu.footer.map((menu) => (
               <li class="block w-[calc(50%-5px)]">
                 <a
                   href={menu.url}
-                  class="text-white hover:text-white transition-all"
+                  class="text-white text-[12px] hover:text-[#bf1d20] hover:underline leading-[26px] transition-all"
                 >
                   {menu.name}
                 </a>
@@ -57,13 +61,13 @@ const trendingPosts = nativePosts.slice(6, 9);
         <Social source={social} className="social-icons mb-8" />
       </div>
       <Trending
-        className="hidden md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
+        className=" md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
         posts={popularPosts}
         title="Popular posts"
         type="footer"
       />
       <Trending
-        className="hidden md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
+        className=" md:flex lg:basis-[33%] md:basis-[calc(50%-20px)] basis-[100%]"
         posts={trendingPosts}
         title="Trending posts"
         type="footer"

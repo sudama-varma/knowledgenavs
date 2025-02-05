@@ -10,16 +10,16 @@ const popularPosts = nativePosts.slice(8, 17);
 const heroPosts = nativePosts.slice(0, 3);
 ---
 
-<Base >
-  <section class="section md:pt-[32px] pt-[40px]">
+<Base>
+  <section class="section md:pt-[50px] pt-[40px]">
     <div class="container">
-      <Hero posts={heroPosts} className="mb-10 md:mb-16" />
+      <Hero posts={heroPosts} className="mb-10 md:mb-[48px]" />
       <Trending posts={trendingPosts} type="row" className="mb-16" />
       <Trending
         title="Popular Articles"
         posts={popularPosts}
         type="column"
-        className="md:mb-16"
+        className="md:mb-12"
       />
       <!-- <Posts posts={currentPosts} className="mb-16" />
       <Pagination currentPage={1} totalPages={totalPages} /> -->
