@@ -1,0 +1,95 @@
+---
+import Base from "@layouts/Base.astro";
+import type { Post } from "@interf/post";
+import { nativePosts } from "@lib/strapi";
+import { categories } from "@lib/strapi";
+
+export async function getStaticPaths() {
+  const latestCategories = categories.map((item) => {
+    return item.attributes.name.toLowerCase().replace(/ /g, "-");
+  });
+
+  return latestCategories.map((category) => {
+    return {
+      params: { category },
+    };
+  });
+}
+
+const { category } = Astro.params;
+
+const filterByCategory = nativePosts.filter(
+  (post) =>
+    post.categories &&
+    post.categories.some(
+      (postCategory) =>
+        postCategory.toLowerCase() === category.replace(/-/g, " ")
+    )
+);
+---
+
+<Base title={category || "Category"} showFooter={false}>
+  <div class="section pt-[10px]">
+    <div class="container">
+      <div class={`flex flex-col gap-4 `}>
+        <h4 class="text-[#13305a] text-[20px] font-primary font-medium h3 mb-2">
+          {category}
+        </h4>
+        {filterByCategory.map((post: Post, i: number) => (
+          <div
+            class={
+              " flex flex-col md:flex-row gap-[30px] pr-3 py-2 md:w-[748px] sm:w-full items-center"
+            }
+          >
+            <div class="col-12 sm:col-12 md:col-4 flex items-center">
+              {post.imageUrl && (
+                <a
+                  href={`/${post.slug}/`}
+                  class="rounded-2xl block self-center sm:w-full sm:h-full md:h-auto hover:text-primary overflow-hidden group"
+                >
+                  <img
+                    class="group-hover:opacity-[0.9] transition object-cover duration-300 w-full min-h-[165px] "
+                    src={post.imageSmallUrl || "/images/placeholder.png"}
+                    width={post.imageSmallWidth}
+                    height={post.imageSmallHeight}
+                    alt={post.title}
+                    fetchpriority={"low"}
+                    loading={"lazy"}
+                    decoding="async"
+                  />
+                </a>
+              )}
+            </div>
+            <div class="col-12 sm:col-12 md:col-8 flex flex-col gap-2">
+              <a
+                href={`/${post.slug}/`}
+                class="inline-block text-[18px] font-medium leading-[24px] text-[#13305a] transition duration-300  break-words"
+              >
+                {post.title}
+              </a>
+              <a href="#" class="text-[12px] text-[#00adef]">
+                {post.author}
+              </a>
+              <p class="text-[14px] text-[#666666] break-words font-normal">
+                If you’re planning a trip to Japan for the first time, here are
+                some suggestions to help you ...
+              </p>
+              {/* <p class="text-[#798A92]">
+                {removeSpecialChars(
+                  post.content?.slice(0, Number(summary_length * 2.5))
+                )}
+                ...
+              </p> */}
+              {/* <a
+                href={`/${post.slug}/`}
+                class="block py-2 mt-4 text-white text-center sm:max-w-80 bg-primary hover:bg-primary/75 rounded-lg font-bold transition duration-300"
+              >
+                READ ARTICLE
+              </a> */}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>

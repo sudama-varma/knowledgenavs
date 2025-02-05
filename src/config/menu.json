@@ -1,50 +1,38 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
+      "name": "News",
+      "url": "/category/global/"
     },
     {
-      "name": "About us",
-      "url": "/about-us/"
+      "name": "Savings",
+      "url": "/category/innovation/"
     },
     {
-      "name": "Travel",
-      "url": "/categories/travel/"
+      "name": "Financial Tips",
+      "url": "/category/investing/"
     },
     {
-      "name": "Interesting",
-      "url": "/categories/interesting/"
-    },
-    {
-      "name": "Food and Health",
-      "url": "/categories/food-and-health/"
-    },
-    {
-      "name": "Finance",
-      "url": "/categories/finance/"
-    },
-    {
-      "name": "Entertainment",
-      "url": "/categories/entertainment/"
+      "name": "Shopping",
+      "url": "/category/technology/"
     }
   ],
   "mainheader": [
     {
       "name": "News",
-      "url": "/about-us/"
+      "url": "/category/global/"
     },
     {
       "name": "Savings",
-      "url": "/categories/travel/"
+      "url": "/category/innovation/"
     },
     {
       "name": "Financial Tips",
-      "url": "/categories/interesting/"
+      "url": "/category/investing/"
     },
     {
       "name": "Shopping",
-      "url": "/categories/food-and-health/"
+      "url": "/category/technology/"
     }
   ],
   "footer": [
