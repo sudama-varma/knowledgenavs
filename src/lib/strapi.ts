@@ -59,8 +59,12 @@ export const site: Site[] = siteData.map((site) => {
     id: site.id,
     name: site.attributes.name,
     slug: site.attributes.slug,
-    termsOfAgreement: site.attributes.termsOfAgreement,
+    termsOfService: site.attributes.termsOfService,
     privacyPolicy: site.attributes.privacyPolicy,
+    dcma: site.attributes.dcma,
+    cookiePolicy: site.attributes.cookiePolicy,
+    ccpa: site.attributes.ccpa,
+    aboutUs: site.attributes.aboutUs,
     createdAt: site.attributes.createdAt,
     updatedAt: site.attributes.updatedAt,
   };

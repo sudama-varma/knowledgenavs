@@ -3,8 +3,12 @@ export interface SiteData {
   attributes: {
     name: string;
     slug: string;
-    termsOfAgreement: string;
+    aboutUs: string;
+    termsOfService: string;
     privacyPolicy: string;
+    dcma: string;
+    cookiePolicy: string;
+    ccpa: string;
     logo: {
       data: {
         attributes: {
@@ -26,8 +30,12 @@ export interface Site {
   id: number;
   name: string;
   slug: string;
-  termsOfAgreement: string;
+  aboutUs: string;
+  termsOfService: string;
   privacyPolicy: string;
+  dcma: string;
+  cookiePolicy: string;
+  ccpa: string;
   logoUrl: string;
   logoWidth: number;
   logoHeight: number;

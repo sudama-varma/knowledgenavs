@@ -1,8 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
-import { parseMarkdown } from "@lib/utils/textConverter";
 import { site } from "@lib/strapi";
-const content = site[0].advertiseWithUs;
+
+const content = site[0].ccpa;
 ---
 
 <Base>
@@ -14,11 +14,14 @@ const content = site[0].advertiseWithUs;
             class="w-full text-center bg-[#f6f9fc] p-[10px] border-[1px] border-[#EBF1F8] mb-[20px]"
           >
             <h1 class="md:text-[36px] text-[22px] text-[#000]">
-              Advertise With Us
+              Cookie Policy
             </h1>
           </div>
-          <div class="w-full inline-block"></div>
-          <div class="text-[#000]" set:html={content} />
+          <div
+            class="text-[#000] break-words first-letter:text-7xl first-letter:text-slate-900 first-letter:mr-2 first-letter:float-left"
+          >
+            <div set:html={content} />
+          </div>
         </div>
       </div>
     </div>
