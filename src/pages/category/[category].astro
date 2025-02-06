@@ -5,9 +5,9 @@ import { nativePosts } from "@lib/strapi";
 import { categories } from "@lib/strapi";
 
 export async function getStaticPaths() {
-  const latestCategories = categories.map((item) => {
+  const latestCategories = categories.map((item) => { 
     return item.attributes.name.toLowerCase().replace(/ /g, "-");
-  });
+  }); 
 
   return latestCategories.map((category) => {
     return {
