@@ -22,6 +22,7 @@ const siteData: SiteData[] = await fetchApi<SiteData[]>({
   wrappedByKey: "data",
 });
 
+console.log(siteData[0])
 
 export const nativePosts: Post[] = nativePostsData.map((post) => {
   return {

@@ -42,23 +42,27 @@
     },
     {
       "name": "DMCA Policy",
-      "url": "/legal/dmca-policy/"
+      "url": "/dmca/"
     },
     {
       "name": "Privacy Policy",
-      "url": "/legal/privacy-policy/"
+      "url": "/privacy-policy/"
     },
     {
       "name": "Cookie Policy",
-      "url": "/legal/cookie-policy/"
+      "url": "/cookie-policy/"
     },
     {
       "name": "Terms of Service",
-      "url": "/legal/terms-of-use/"
+      "url": "/terms-of-service/"
     },
     {
       "name": "Advertise With Us",
-      "url": "/legal/advertise-with-us/"
+      "url": "/advertise-with-us/"
+    },
+    {
+      "name": "CCPA",
+      "url": "/ccpa/"
     },
     {
       "name": "Contact Us",
