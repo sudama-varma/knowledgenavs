@@ -5,10 +5,11 @@ const getRandomPosts = (arr:any[], count:number) => arr.sort(() => Math.random()
 const heroPosts = getRandomPosts(nativePosts, 3);
 ---
 
-<div class="">
+<div class="sidebar_post">
   {
     heroPosts.map((post) => (
       <div class="single_post">
+        <a href={`/${post.slug}/`} class="post_link">
         {post.imageUrl && (
           <img
             class=" transition duration-300 w-full h-full object-cover"
@@ -40,6 +41,7 @@ const heroPosts = getRandomPosts(nativePosts, 3);
         <p class="text-[#666666] text-[14px]">
           {removeSpecialChars(post.content)?.slice(0,80)}...
         </p>
+      </a>
       </div>
     ))
   }

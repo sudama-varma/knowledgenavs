@@ -1,5 +1,6 @@
 ---
 import Base from "@layouts/Base.astro";
+import SidebarPosts from "@layouts/components/SidebarPosts.astro";
 import { nativePosts, site } from "@lib/strapi";
 import { removeSpecialChars } from "@lib/utils/textConverter";
 import { FaTwitter, FaFacebookF } from "react-icons/fa6";
@@ -35,43 +36,7 @@ const heroPosts = nativePosts.slice(0, 3);
           </div>
         </div>
         <div class="md:col-span-1 px-4 lg:pl-[2rem]">
-          {
-            heroPosts.map((post) => (
-              <div class="single_post">
-                {post.imageUrl && (
-                  <img
-                    class=" transition duration-300 w-full h-full object-cover"
-                    src={
-                      post.imageSmallUrl
-                        ? post.imageSmallUrl
-                        : post.imageMediumUrl || "/images/placeholder.png"
-                    }
-                    width={
-                      post.imageSmallWidth
-                        ? post.imageSmallWidth
-                        : post.imageMediumWidth
-                    }
-                    height={
-                      post.imageSmallHeight
-                        ? post.imageSmallHeight
-                        : post.imageMediumHeight
-                    }
-                    alt={post.title}
-                    fetchpriority={"high"}
-                    loading={"eager"}
-                    decoding="async"
-                  />
-                )}
-                <h2>
-                  {post?.title}
-                </h2>
-                <span>{post.author}</span>
-                <p>
-                  {removeSpecialChars(post.content)?.slice(0,80)}...
-                </p>
-              </div>
-            ))
-          }
+          <SidebarPosts />
         </div>
       </div>
     </div>
