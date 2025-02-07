@@ -37,36 +37,37 @@
   ],
   "footer": [
     {
-      "name": "About Us",
-      "url": "/about-us/"
-    },
-    {
-      "name": "DMCA Policy",
-      "url": "/dmca/"
-    },
-    {
       "name": "Privacy Policy",
       "url": "/privacy-policy/"
-    },
-    {
-      "name": "Cookie Policy",
-      "url": "/cookie-policy/"
     },
     {
       "name": "Terms of Service",
       "url": "/terms-of-service/"
     },
     {
-      "name": "Advertise With Us",
-      "url": "/advertise-with-us/"
-    },
-    {
       "name": "CCPA",
       "url": "/ccpa/"
     },
     {
+      "name": "DMCA Policy",
+      "url": "/dmca/"
+    },
+    {
+      "name": "Cookie Policy",
+      "url": "/cookie-policy/"
+    },
+    {
       "name": "Contact Us",
       "url": "/contact/"
+    },
+    {
+      "name": "About Us",
+      "url": "/about-us/"
+    },
+    {
+      "name": "Advertise With Us",
+      "url": "/advertise/"
     }
+
   ]
 }
