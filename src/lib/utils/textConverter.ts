@@ -1,5 +1,6 @@
 import { slug } from 'github-slugger';
 import { marked } from "marked";
+import {JSDOM} from "jsdom";
 
 // slugify
 export const slugify = (content: string) => {
@@ -24,8 +25,9 @@ export const parseMarkdown = (content: string) => {
 
 export const removeSpecialChars = (content: string) => {
   if (!content) return null;
-
-  return content?.replace(/[^\w\s]/gi, "");
+  const dom = new JSDOM(content);
+  const document = dom.window.document.documentElement;
+  return document.textContent;
 };
 
 // humanize

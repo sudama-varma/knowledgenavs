@@ -8,6 +8,8 @@ export interface SiteData {
     privacyPolicy: string;
     dcma: string;
     cookiePolicy: string;
+    contactUs: string;
+    advertiseWithUs: string;
     ccpa: string;
     logo: {
       data: {
@@ -36,6 +38,8 @@ export interface Site {
   dcma: string;
   cookiePolicy: string;
   ccpa: string;
+  contactUs: string;
+  advertiseWithUs: string;
   logoUrl: string;
   logoWidth: number;
   logoHeight: number;

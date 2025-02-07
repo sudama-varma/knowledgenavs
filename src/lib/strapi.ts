@@ -65,6 +65,8 @@ export const site: Site[] = siteData.map((site) => {
     dcma: site.attributes.dcma,
     cookiePolicy: site.attributes.cookiePolicy,
     ccpa: site.attributes.ccpa,
+    contactUs: site.attributes.contactUs,
+    advertiseWithUs: site.attributes.advertiseWithUs,
     aboutUs: site.attributes.aboutUs,
     createdAt: site.attributes.createdAt,
     updatedAt: site.attributes.updatedAt,

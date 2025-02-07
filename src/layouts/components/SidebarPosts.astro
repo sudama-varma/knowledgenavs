@@ -1,0 +1,46 @@
+---
+import { nativePosts } from "@lib/strapi";
+import { removeSpecialChars } from "@lib/utils/textConverter";
+const getRandomPosts = (arr:any[], count:number) => arr.sort(() => Math.random() - 0.5).slice(0, count);
+const heroPosts = getRandomPosts(nativePosts, 3);
+---
+
+<div class="">
+  {
+    heroPosts.map((post) => (
+      <div class="single_post">
+        {post.imageUrl && (
+          <img
+            class=" transition duration-300 w-full h-full object-cover"
+            src={
+              post.imageSmallUrl
+                ? post.imageSmallUrl
+                : post.imageMediumUrl || "/images/placeholder.png"
+            }
+            width={
+              post.imageSmallWidth
+                ? post.imageSmallWidth
+                : post.imageMediumWidth
+            }
+            height={
+              post.imageSmallHeight
+                ? post.imageSmallHeight
+                : post.imageMediumHeight
+            }
+            alt={post.title}
+            fetchpriority={"high"}
+            loading={"eager"}
+            decoding="async"
+          />
+        )}
+        <h2>
+          {post?.title}
+        </h2>
+        <span>{post.author}</span>
+        <p class="text-[#666666] text-[14px]">
+          {removeSpecialChars(post.content)?.slice(0,80)}...
+        </p>
+      </div>
+    ))
+  }
+</div>

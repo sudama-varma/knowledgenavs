@@ -2,41 +2,28 @@
 import Base from "@layouts/Base.astro";
 import { nativePosts, site } from "@lib/strapi";
 import { removeSpecialChars } from "@lib/utils/textConverter";
-import { FaTwitter, FaFacebookF } from "react-icons/fa6";
 
-const content = site[0].aboutUs;
+const content = site[0].contactUs;
 const heroPosts = nativePosts.slice(0, 3);
 ---
 
-<Base>
-  <section class="section pb-0 pt-[10px] ccpa-page">
+<Base >
+  <section class="section pt-[10px]">
     <div class="container-fluid">
-      <div class="grid md:grid-cols-4 gap-4 p-4">
-        <div class="md:col-span-1 p-4">
-          <div class="px-[15px]"></div>
+      <div class="w-full">
+        <div
+          class="mb-8"
+        >
+          <div class="basis-[70%]">
+            <h1>Contact Us</h1>
+          </div>
         </div>
-        <div class="md:col-span-2 p-4 condation-text">
-          <div class="mb-16 text-left text-[#000] px-[15px]">
-            <div class="w-full p-[10px] mb-[20px]">
-              <h1 class="md:text-[36px] text-[22px] text-[#000]">CCPA</h1>
-            </div>
-            <div
-              class="w-full flex items-center justify-end social_icons mb-[30px]"
-            >
-              <span class="text-[#fff] text-[14px]"
-                ><a href="#" class="flex items-center justify-center"
-                  ><FaTwitter /></a
-                ></span
-              >
-              <span class="text-[#fff] text-[14px]"
-                ><a href="#" class="flex items-center justify-center"
-                  ><FaFacebookF /></a
-                ></span
-              >
-            </div>
-            <div class="text-[#000] break-words">
-              <div set:html={content} />
-            </div>
+      </div>
+      <div class="grid md:grid-cols-4 gap-4 p-4">
+        <div class="md:col-span-2 p-4 ">
+          
+          <div class="w-full sm:w-1/2" set:html={content}>
+            
           </div>
         </div>
         <div class="md:col-span-1 px-4 lg:pl-[2rem]">
